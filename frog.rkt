@@ -1,13 +1,14 @@
-
 #lang frog/config
 
 ;; Called early when Frog launches. Use this to set parameters defined
 ;; in frog/params.
 (define/contract (init)
   (-> any)
-  (current-scheme/host "http://bwarren.me")
-  (current-title "Upskillifyly")
-  (current-author "Ben Warren"))
+  (current-scheme/host "https://bwarren.me")
+  (current-title "Ben Warren's Blog")
+  (current-author "Ben Warren")
+  (current-posts-index-uri "/index.html")
+  (current-source-dir "_src"))
 
 ;; Called once per post and non-post page, on the contents.
 (define/contract (enhance-body xs)

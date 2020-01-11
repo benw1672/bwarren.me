@@ -24,3 +24,25 @@ article img {
   max-width: 100%;
   height: auto;
 }
+
+.navigation-bar {
+    align-items: center;
+    background-color: #2e40b7!important;
+    display: flex;
+    font-size: 1.2em;
+}
+
+.navigation-bar .navbar-brand {
+    font-family: 'Bungee Inline', cursive;
+    font-size: 1.4em;
+}
+
+p {
+    font-family: Franklin, arial, sans-serif;
+    font-size: 0.9em;
+}
+
+#content p {
+    font-family: georgia, Times New Roman, serif;
+    font-size: 1.1em;
+}
