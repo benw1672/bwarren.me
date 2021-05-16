@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+    <meta charset="utf-8">
+    <title>Randomness and Computational Complexity 🤖</title>
+    <meta name="description" content="TL;DR: Randomness is a mathematical device, not a physical phenomenon.  Randomness lets us trade computational complexity for uncertainty....">
+    <meta name="author"      content="Ben Warren">
+    <meta name="keywords"    content="computational complexity, randomness, physics">
+    <meta name="viewport"    content="width=device-width, initial-scale=1.0">
+    <link rel="icon"      href="/
+favicon.ico">
+    <link rel="canonical" href="https://bwarren.me/2021\05\randomness-and-computational-complexity.html">
+
+
+    <!-- CSS -->
+    <link href="https://fonts.googleapis.com/css?family=Bungee|Bungee+Inline|Merriweather|Merriweather+Sans|Palanquin+Dark&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/pygments.css">
+    <link rel="stylesheet" type="text/css" href="/css/scribble.css">
+    <link rel="stylesheet" type="text/css" href="/css/custom.css">
+    <!-- JS -->
+    <script type="text/javascript">
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-xxxxx', 'auto');
+      ga('send', 'pageview');
+    </script>
+  </head>
+  <body>
+
+    <!-- A standard Twitter Bootstrap nav bar -->
+    <nav class="navbar navbar-expand-md navbar-dark navigation-bar">
+      <div class="container">
+
+      <a href="/index.html" class="navbar-brand">BWarren</a>
+
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+              data-target="#navbar_collapse" aria-controls="navbar_collapse"
+              aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbar_collapse">
+          <ul class="navbar-nav mr-auto">
+
+
+            <li class="nav-item dropdown">
+              <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
+                Tags <b class="caret"></b>
+              </a>
+
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="/tags\computational-complexity.html">computational complexity</a><a class="dropdown-item" href="/tags\physics.html">physics</a><a class="dropdown-item" href="/tags\randomness.html">randomness</a>
+              </div>
+            </li>
+
+            <li>
+              <a class="nav-link" href="/About.html">About</a>
+            </li> 
+
+          </ul>
+      </div>
+
+      </div>
+    </nav>
+
+
+    <div class="container">
+      <div class="row">
+
+        <!-- Main column -->
+        <div id="content" class="col-md-12">
+
+
+
+
+
+          <article>
+  <header>
+    <h1>Randomness and Computational Complexity 🤖</h1>
+    <p class='date-and-tags'>
+<time datetime="2021-05-16" pubdate="true">2021-05-16</time> :: <span class="tags"><a href="/tags\computational-complexity.html">computational complexity</a>, <a href="/tags\randomness.html">randomness</a>, <a href="/tags\physics.html">physics</a></span></p>
+    <p class='authors'>By: <span class="authors">Ben Warren</span></p>
+  </header>
+
+<p>TL;DR: Randomness is a mathematical device, not a physical phenomenon.  Randomness lets us trade computational complexity for uncertainty.</p>
+<!-- more-->
+
+<p>You flip a coin. Should you call heads or tails? In probability class, we&rsquo;d say that the outcome of the coin toss is a random variable - it will be HEADS with probability 1/2, and TAILS with probability 1/2. But zoom in. Was that coin toss <em>really</em> random? Imagine I set up a sensor array that lets me measure the precise direction and force with which the coin is tossed, the air density, and the geometry of the surface that the coin will land on. If I feed that data into a computer model, it&rsquo;s safe to say that I can get a slight edge in predicting the outcome of that coin toss - maybe 60/40, instead of 50/50. In fact, as far as we know, the rules of physics are deterministic; if I knew all of the details of the initial condition of the coin toss and I had infinite compute at my disposal, I could compute with certainty the side on which the coin would land. Think of any other place we frequently talk about randomness. The stock market? Those prices might look random, but ultimately they are driven by individual human decisions - fundamentally, there is no random number generator behind the scenes. The motion of particles in a gas? If we have the patience, we can model all of the forces and simulate the motion of individual particles step-by-step, as <a href="https://en.wikipedia.org/wiki/Molecular_dynamics">molecular dynamics</a> programs do. Even <a href="https://en.wikipedia.org/wiki/Hardware_random_number_generator">&ldquo;true&rdquo; random number generators</a> rely on deterministic physical phenomena.</p>
+
+<p>So, what is &ldquo;randomness&rdquo;? It&rsquo;s a mathematical abstraction that gives an <a href="https://en.wikipedia.org/wiki/Computational_complexity_theory">exponential-time-speedup</a> over computing the true outcome. Rather than follow the molecular dynamics of the gas particle to find its exact position at timestep 10,000, I just pick random coordinates in the holding vessel. However, notice the tradeoff - we are reducing computational complexity by introducing uncertainty. For an individual event - like the flip of a coin or the motion of a gas particle, a model with randomness cannot give the &ldquo;true&rdquo; answer. The way we get back to a &ldquo;true&rdquo; answer is by reducing our model&rsquo;s resolution. Instead of asking about the motion of an individual gas particle, ask about the aggregate behavior of a <a href="https://en.wikipedia.org/wiki/Statistical_mechanics">system of gas particles</a> in a container; if we use random variables with the same distribution of outcomes as the actual events, our statistical conclusions will be valid. The pattern is: introduce randomness, then jump up to a higher level of abstraction.</p>
+
+<p>Introducing randomness is necessary for understanding any physical system. All current physical theories (Newtonian mechanics, for instance) implicitly admit microscale uncertainty. This makes sense, because if the physical universe is, indeed, deterministic and <a href="https://en.wikipedia.org/wiki/Model_of_computation">at least as powerful</a> as a Turing machine, then no computer that we build to simulate the universe will be able to run faster than the universe itself, because our simulating computer must be built out of the stuff of the physical universe. Therefore, any prediction of the future cannot be precise at a maximally fine-grained resolution - in order to compute faster than the universe itself, we have to take shortcuts, grabbing exponential-time speedups by reducing our resolution - such as by constraining our scope and introducing randomness.</p>
+
+<p>For an interesting, non-consensus theory of physics with the point-of-view of everything-as-computation, check out the <a href="https://wolframphysics.org/">Wolfram Physics Project</a>.</p>
+  <footer>
+    <div class="row justify-content-center">
+      <nav aria-label="Page Navigation">
+        <ul class="pagination">
+
+
+        </ul>
+      </nav>
+    </div>
+  </footer>
+</article>
+        </div>
+      </div>
+      <footer>
+        <hr />
+        <p>Site generated
+        by <a href="https://github.com/greghendershott/frog">Frog</a>,
+        the <strong>fr</strong>ozen bl<strong>og</strong> tool.</p>
+        <p><em>&copy;2020 Ben Warren</em>.</p>
+      </footer>
+    </div>
+    <!-- </body> JS -->
+    <script type="text/javascript" src="/js/jquery-3.2.1.slim.min.js"></script>
+    <script type="text/javascript" src="/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

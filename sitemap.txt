@@ -1,2 +1,2 @@
-https://bwarren.me/2020/01/test-post.html
+https://bwarren.me/2021\05\randomness-and-computational-complexity.html
 https://bwarren.me/About.html
